@@ -10,26 +10,48 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main newsheader" role="main">
 
-		<?php
-		while ( have_posts() ) : the_post();
+			<header class="entry-header">
+				<h1 class="entry-title align-self-center news-header">NEWS</h1>
+			</header><!-- .entry-header -->
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			<div class="container">				
+				<?php
+				while ( have_posts() ) : the_post();
 
-			the_post_navigation();
+				get_template_part( 'template-parts/content', 'post' );				
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+				endwhile; // End of the loop.
+				?>
+			</div>
 
-		endwhile; // End of the loop.
-		?>
+			<div class="other-posts">
+				<div class="container">
+					<div class="row">
+						<?php 
+						global $post;
+						$args = array( 
+							'post_type' => 'post',
+							'post__not_in' => array($post->ID),
+							'posts_per_page' => 2
+							);
+						$the_query = new WP_Query( $args );						
+						
+						if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
+
+							get_template_part( 'template-parts/content', 'news' );	
+
+						endwhile; endif; ?>
+						
+					</div>
+				</div>
+			</div>
+
+			
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

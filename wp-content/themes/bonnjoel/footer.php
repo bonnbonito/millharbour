@@ -14,10 +14,44 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<?php dynamic_sidebar( 'footer-1' ); ?>
+				</div>				
+				<div class="col-md-3">
+					<?php dynamic_sidebar( 'footer-2' ); ?>
+				</div>
+				<div class="col-md-4">
+					<?php dynamic_sidebar( 'footer-3' ); ?>
+				</div>
+			</div>
+		</div>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bonnjoel' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'bonnjoel' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'bonnjoel' ), 'bonnjoel', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-2">
+						<ul class="social-footer">
+							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-md-7">
+						<nav class="footer-menu-2">
+							<a href="#">Terms and conditions</a>
+							<a href="#">Cookies</a>
+							<a href="#">Privacy policy</a>
+						</nav>
+						<p class="copyright">©Millharbour Digital 2017. Site by Two Boys</p>
+					</div>
+					<div class="col-md-3">
+						<div class="nightingale">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/Nightingale.png" alt="Proud to Support Nightingale">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

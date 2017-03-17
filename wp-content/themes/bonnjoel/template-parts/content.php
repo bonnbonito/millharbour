@@ -27,6 +27,17 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+
+		<?php if (has_post_thumbnail()): ?>
+
+			<div class="feat-image">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('full'); ?>
+				</a>
+			</div>
+			
+		<?php endif; ?>
+
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
